@@ -1,6 +1,6 @@
 # LannCX’s Blog
 
-This is my blog: <https://mazhuang.org>, it is created for share my experience of learning or technical details of my projects.
+This is my blog: <https://lanncx.github.io>, it is created for share my experience of learning or technical details of my projects.
 
 
 
