@@ -1,8 +1,6 @@
 # LannCX’s Blog
 
-This is my blog: <https://lanncx.github.io>, it is created for share my experience of learning or technical details of my projects.
-
-
+This is my blog: <https://lanncx.github.io>, it is created for sharing my ideas about technology details.
 
 ## Acknowledgement:
 This repo is based on the theme as follow:
