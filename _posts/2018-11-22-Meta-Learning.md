@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Meta Learning
-categories: Blog
+categories: Machine Learning
 description: Meta Learning Tutorial
 keywords: Meta learning
 ---
