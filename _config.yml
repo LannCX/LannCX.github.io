@@ -1,0 +1,109 @@
+# ---------------- #
+#   Main Configs   #
+# ---------------- #
+baseurl:
+url: https://lanncx.github.io
+date_format: "ordinal"
+title: LannCX
+subtitle: ""
+description: "Lann的个人博客"
+keywords: LannCX, lann
+timezone: Asia/Chongqing
+encoding: "utf-8"
+side_bar_repo_limit: 5
+
+# ---------------- #
+#      Author      #
+# ---------------- #
+author: Xu Chen
+organization: CQUPT
+organization_url: http://www.cqupt.edu.cn
+github_username: LannCX
+location: ChongQing, China
+email: lanncx@gmail.com
+
+# ---------------- #
+#    Navigation    #
+# ---------------- #
+navs:
+  -
+    href: /
+    label: Home
+
+  -
+    href: /categories/
+    label: Categories
+
+  -
+    href: /links/
+    label: Links
+
+  -
+    href: /about/
+    label: AboutMe
+
+# ---------------- #
+#       RSS        #
+# ---------------- #
+subscribe_rss: /feed.xml
+
+# ---------------- #
+#      Jekyll      #
+# ---------------- #
+markdown: kramdown
+kramdown:
+    input: GFM
+highlighter: rouge
+paginate: 10
+lsi: false
+quiet: false
+excerpt_separator: "\n\n"
+permalink: /:year/:month/:day/:title/
+gems:
+    - jekyll-github-metadata
+    - rouge
+    - jekyll-paginate
+    - jekyll-sitemap
+    - jekyll-feed
+    - jemoji
+    
+collections:
+    wiki:
+        output: true
+        permalink: /wiki/:path/
+
+repository: LannCX/LannCX.github.io
+
+# ---------------- #
+#      Comments    #
+# ---------------- #
+# support provider: disqus, gitment, gitalk
+comments_provider: gitalk
+# !!!重要!!! 请修改下面这些信息为你自己申请的
+# !!!Important!!! Please modify infos below to yours
+# https://disqus.com
+disqus:
+    username: 
+# https://github.com/gitalk/gitalk#install
+gitalk:
+    owner: LannCX
+    repo: blog-comments
+    clientID: 7b591dd17a1f4362140f
+    clientSecret: 122d81ab85b165e9847846190b76ef8412d8fe8b
+# 在使用其它评论组件时可点击显示 Disqus
+lazy_load_disqus : false
+
+# ---------------- #
+#      Search      #
+# ---------------- #
+simple_jekyll_search:
+    # 是否支持全文搜索
+    fulltext: false
+    # 最多显示多少条搜索结果
+    limit: 10
+
+# ---------------- #
+#    Analytics     #
+# ---------------- #
+google:
+    analytics_id: UA-80669434-1

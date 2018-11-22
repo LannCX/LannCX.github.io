@@ -1,0 +1,18 @@
+- name: Research
+  keywords:
+      - Image Processing
+      - Machine Learning
+      - Pattern Recognition
+      - Action Recognition/Detection
+
+- name: Software Engineer Keywords
+  keywords:
+      - Python
+      - C/C++
+      - Matlab
+
+- name: Mobile Developer Keywords
+  keywords:
+      - Android
+      - Reverse Engineering
+

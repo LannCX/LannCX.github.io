@@ -1,0 +1,6 @@
+- name: Pytorch Documentation
+  url: https://pytorch.org
+
+- name: arXiv-Computer Vision and Pattern Recognition
+  url: https://arxiv.org/list/cs.CV/recent
+
