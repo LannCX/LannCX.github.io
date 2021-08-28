@@ -1,4 +1,4 @@
-# LannCX’s Blog
+# LannCX's Blog
 
 This is my blog: <https://lanncx.github.io>, it is created for sharing my ideas about technology details.
 
@@ -8,3 +8,5 @@ This repo is based on the theme as follow:
 2. [DONGChuan](https://dongchuan.github.io), 
 
 Thanks for their nice works.
+
+
