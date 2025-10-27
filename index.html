@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xu Chen's Homepage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-geo@4.2.0/dist/chartjs-chart-geo.umd.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                primary: '#4F46E5', // Indigo color
+                secondary: '#666666',
+                dark: '#1D2939',
+                light: '#F9FAFB'
+            },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['Roboto Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            }
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #f9fafb; /* Light gray background for body */
+        }
+        /* Reset header styling without background image */
+        header {
+            position: relative;
+            background-color: white;
+        }
+        .bg-white {
+            background-color: rgba(255, 255, 255, 0.95) !important;
+        }
+        .bg-gray-800 {
+            background-color: rgba(30, 41, 59, 0.95) !important;
+        }
+    </style>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body class="bg-gray-50 text-dark font-sans">
+    <!-- 导航栏 -->
+    <nav id="navbar" class="fixed w-full bg-white shadow-sm z-50 border-b border-gray-200">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="javascript:location.reload()" class="nav-home text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">Home</a>
+                    <a href="#research" class="nav-research text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">Research</a>
+                    <a href="#news" class="nav-news text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">News</a>
+                    <a href="#publications" class="nav-publications text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">Publications</a>
+                </div>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#" class="mobile-home block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">首页</a>
+                <a href="#research" class="mobile-research block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">研究方向</a>
+                <a href="#news" class="mobile-news block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">新闻</a>
+                <a href="#publications" class="mobile-publications block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">论文</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 个人简介 -->
+    <header class="pt-32 pb-16 md:pt-40 md:pb-24 bg-white shadow-md">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-12">
+                <div class="md:w-1/4">
+                    <div class="w-48 h-48 md:w-64 md:h-64 rounded-lg overflow-hidden shadow-lg">
+                        <img src="avatar.jpg" alt="Xu Chen" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:w-3/4 space-y-4">
+                    <h1 class="text-3xl md:text-4xl font-bold text-gray-900">
+                        Xu Chen
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-600" id="hero-title">
+                        Computer Vision & AI Researcher
+                    </p>
+                    <p class="text-gray-700 max-w-2xl" id="hero-bio">
+                        I am a postdoctoral researcher at the Harbin Institute of Technology (HIT), Shenzhen. 
+                        My research focuses on Video Analysis, Embodied Intelligence, and Model Compression, and I particularly strive to make AI serve humanity with high efficiency while utilizing fewer hardware resources.
+                        I am served as the reviewer for multiple conferences (ICCV, CVPR, AAAI, ACM MM) and jornals (TNNLS, TMM, KBS, SPL).
+                        I am a postdoctoral researcher at the Harbin Institute of Technology (HIT), ShenZhen. 
+                        My research focuses on video analysis, embodied intelligence, and model compression, with a particular emphasis on enabling AI to serve humanity efficiently while consuming fewer hardware resources. 
+                        Additionally, I serve as a reviewer for multiple top AI conferences and journals, such as ICCV, CVPR, AAAI, TNNLS, TMM, KBS, and SPL.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 pt-2">
+                        <span class="text-primary hover:text-primary/80 transition-colors"><i class="fa fa-envelope mr-2"></i>lanncx@gmail.com</span>
+                        <a href="https://github.com/LannCX" class="text-primary hover:text-primary/80 transition-colors"><i class="fa fa-github mr-1"></i> GitHub</a>
+                        <a href="https://scholar.google.com/citations?user=_AIFjE0AAAAJ&hl=zh-CN" class="text-primary hover:text-primary/80 transition-colors"><i class="fa fa-google mr-1"></i> Google Scholar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- 职业经历 -->
+        <section id="career" class="mb-20">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6" id="career-title">Career</h2>
+                <div class="grid md:grid-cols-1 gap-8">
+                    <div class="flex flex-col h-full">
+                        <ul class="space-y-4 text-gray-700 flex-grow">
+                            <li class="flex items-start"><i class="fa fa-angle-right text-primary mr-2 mt-1"></i> <span>2025-Present: Postdoctoral Researcher, Harbin Institute of Technology, Shenzhen</span></li>
+                            <li class="flex items-start"><i class="fa fa-angle-right text-primary mr-2 mt-1"></i> <span>2021-2025: Ph.D., Tianjin University</span></li>
+                            <li class="flex items-start"><i class="fa fa-angle-right text-primary mr-2 mt-1"></i> <span>2021-2023: Research Intern, Baidu Research</span></li>
+                            <li class="flex items-start"><i class="fa fa-angle-right text-primary mr-2 mt-1"></i> <span>2014-2021: B.S. & M.S., Chongqing University of Posts and Telecommunications</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 研究方向 -->
+        <!-- <section id="research" class="mb-20">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6" id="research-title">Research Interests</h2>
+                <div class="grid md:grid-cols-1 gap-8">
+                    <div class="flex flex-col h-full">
+                        <ul class="space-y-4 text-gray-700 flex-grow">
+                            <li class="flex items-start"><i class="fa fa-angle-right text-primary mr-2 mt-1"></i> <span>Efficient Machine Learning</span></li>
+                            <li class="flex items-start"><i class="fa fa-angle-right text-primary mr-2 mt-1"></i> <span>Embodied Intelligence</span></li>
+                            <li class="flex items-start"><i class="fa fa-angle-right text-primary mr-2 mt-1"></i> <span>Video Analysis</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- 最新动态 -->
+        <section id="news" class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark inline-block border-b-4 border-primary pb-2" id="news-title">
+                    News
+                </h2>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="divide-y divide-gray-200" id="news-list">
+                        <div class="p-6 hover:bg-gray-50 transition-colors">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-primary/10 text-primary rounded-md px-3 py-1 text-sm font-medium">2025-07-06</div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-medium text-gray-900" id="news-item-2-title">One paper accepted by ACM MM 2025</h3>
+                                    <p class="mt-1 text-gray-600" id="news-item-2-content">My research paper on dense multi-label temporal action detection has been accepted by ACM MM 2025 (CCF A).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 hover:bg-gray-50 transition-colors">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-primary/10 text-primary rounded-md px-3 py-1 text-sm font-medium">2025-06-26</div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-medium text-gray-900" id="news-item-1-title">One paper accepted by ICCV 2025</h3>
+                                    <p class="mt-1 text-gray-600" id="news-item-1-content">My research paper on data-free knowledge distillation has been accepted by ICCV 2025 (CCF A).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6 hover:bg-gray-50 transition-colors">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-primary/10 text-primary rounded-md px-3 py-1 text-sm font-medium">2024-12-30</div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-medium text-gray-900" id="news-item-3-title">One paper accepted by TNNLS</h3>
+                                    <p class="mt-1 text-gray-600" id="news-item-3-content">My research paper on efficient action recognition has been accepted by TNNLS (CCF B).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 px-6 py-4">
+                        <a href="news.html" class="text-primary hover:text-primary/80 font-medium flex items-center" id="more-news">
+                            View more news <i class="fa fa-angle-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 论文 -->
+        <section id="publications" class="mb-20">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6" id="publications-title">Publications</h2>
+                <div class="bg-white rounded-lg p-6 shadow-sm">
+                    <!-- <h3 class="text-lg font-semibold text-gray-900 mb-3">Publications</h3> -->
+                    <ul class="space-y-6 text-gray-700">
+                        <li class="flex items-start">
+                            <img src="publications_cover/mm2025.png" alt="MM 2025 Paper Cover" class="aspect-video w-48 max-w-full object-cover rounded mr-4 border border-gray-200">
+                            <div>
+                                <i class="fa fa-file-text-o text-primary mr-2 mt-1 inline-block"></i>
+                                <span><strong>Ex Pede Herculem, Predicting Global Actionness Curve from Local Clips</strong><br><strong>Xu Chen</strong>, Yang Li, Yahong Han, Jialie Shen<br>ACM International Conference on Multimedia (ACM MM), 2025</span>
+                                <div class="flex space-x-4 mt-2">
+                                <a href="https://github.com/LannCX/FreETAD" class="text-primary hover:text-primary/80 flex items-center text-sm"><i class="fa fa-github mr-1"></i> Code</a>
+                                <!-- <a href="#" class="text-primary hover:text-primary/80 flex items-center text-sm"><i class="fa fa-database mr-1"></i> Dataset</a> -->
+                                <a href="https://openreview.net/pdf?id=wnN6ER0svh" class="text-primary hover:text-primary/80 flex items-center text-sm"><i class="fa fa-file-pdf-o mr-1"></i> Paper</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <img src="publications_cover/iccv2025.png" alt="ICCV 2025 Paper Cover" class="aspect-video w-48 max-w-full object-cover rounded mr-4 border border-gray-200">
+                            <div>
+                                <i class="fa fa-file-text-o text-primary mr-2 mt-1 inline-block"></i>
+                                <span><strong>Coupling the Generator with Teacher for Effective Data-Free Knowledge Distillation</strong><br><strong>Xu Chen</strong>, Yang Li, Yahong Han, Guangquan Xu, Jialie Shen<br>International Conference on Computer Vision (ICCV), 2025</span>
+                                <div class="flex space-x-4 mt-2">
+                                <a href="https://github.com/LannCX/CPNet" class="text-primary hover:text-primary/80 flex items-center text-sm"><i class="fa fa-github mr-1"></i> Code</a>
+                                <a href="https://openreview.net/pdf?id=DkDcFfe9Ek" class="text-primary hover:text-primary/80 flex items-center text-sm"><i class="fa fa-file-pdf-o mr-1"></i> Paper</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <img src="publications_cover/tnnls2025.png" alt="TNNLS 2025 Paper Cover" class="aspect-video w-48 max-w-full object-cover rounded mr-4 border border-gray-200">
+                            <div>
+                                <i class="fa fa-file-text-o text-primary mr-2 mt-1 inline-block"></i>
+                                <span><strong>A Static-Dynamic Composition Framework for Efficient Action Recognition</strong><br><strong>Xu Chen</strong>, Yahong Han, Changlin Li, Xiaojun Chang, Yifan Sun, Yi Yang<br>IEEE Transactions on Neural Networks and Learning Systems (TNNLS), 2025</span>
+                                <div class="flex space-x-4 mt-2">
+                                <a href="https://github.com/LannCX/SDCOM" class="text-primary hover:text-primary/80 flex items-center text-sm"><i class="fa fa-github mr-1"></i> Code</a>
+                                <a href="https://ieeexplore.ieee.org/abstract/document/10836808" class="text-primary hover:text-primary/80 flex items-center text-sm"><i class="fa fa-file-pdf-o mr-1"></i> Paper</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <img src="publications_cover/tip2022.png" alt="TIP 2022 Paper Cover" class="aspect-video w-48 max-w-full object-cover rounded mr-4 border border-gray-200">
+                            <div>
+                                <i class="fa fa-file-text-o text-primary mr-2 mt-1 inline-block"></i>
+                                <span><strong>Action Keypoint Network for Efficient Video Recognition</strong><br><strong>Xu Chen</strong>, Yahong Han, Xiaohan Wang, Yifan Sun, Yi Yang<br>IEEE Transactions on Image Processing (TIP), 2022</span>
+                                <div class="flex space-x-4 mt-2">
+                                <!-- <a href="#" class="text-primary hover:text-primary/80 flex items-center text-sm"><i class="fa fa-github mr-1"></i> Code</a> -->
+                                <a href="https://ieeexplore.ieee.org/abstract/document/9836319" class="text-primary hover:text-primary/80 flex items-center text-sm"><i class="fa fa-file-pdf-o mr-1"></i> Paper</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <img src="publications_cover/mm2021.png" alt="MM 2021 Paper Cover" class="aspect-video w-48 max-w-full object-cover rounded mr-4 border border-gray-200">
+                            <div>
+                                <i class="fa fa-file-text-o text-primary mr-2 mt-1 inline-block"></i>
+                                <span><strong>Video-to-Image Casting: A Flatting Method for Video Analysis</strong><br><strong>Xu Chen</strong>, Chenqiang Gao, Feng Yang, Xiaohan Wang, Yi Yang, Yahong Han<br>ACM International Conference on Multimedia (ACM MM, <strong>Oral</strong>), 2021</span>
+                                <div class="flex space-x-4 mt-2">
+                                <a href="https://github.com/LannCX/STImage" class="text-primary hover:text-primary/80 flex items-center text-sm"><i class="fa fa-github mr-1"></i> Code</a>
+                                <a href="https://dl.acm.org/doi/abs/10.1145/3474085.3475424" class="text-primary hover:text-primary/80 flex items-center text-sm"><i class="fa fa-file-pdf-o mr-1"></i> Paper</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <img src="publications_cover/tmm2021.png" alt="TMM 2021 Paper Cover" class="aspect-video w-48 max-w-full object-cover rounded mr-4 border border-gray-200">
+                            <div>
+                                <i class="fa fa-file-text-o text-primary mr-2 mt-1 inline-block"></i>
+                                <span><strong>Infrared Action Detection in the Dark via Cross-stream Attention Mechanism</strong><br><strong>Xu Chen</strong>, Chenqiang Gao, Chaoyu Li, Yi Yang, Deyu Meng<br>IEEE Transactions on Multimedia (TMM), 2021</span>
+                                <div class="flex space-x-4 mt-2">
+                                <a href="https://github.com/LannCX/InfDetNet" class="text-primary hover:text-primary/80 flex items-center text-sm"><i class="fa fa-github mr-1"></i> Code</a>
+                                <a href="https://ieeexplore.ieee.org/abstract/document/9316950" class="text-primary hover:text-primary/80 flex items-center text-sm"><i class="fa fa-file-pdf-o mr-1"></i> Paper</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <img src="publications_cover/iet-ipr2019.png" alt="IET IPR 2019 Paper Cover" class="aspect-video w-48 max-w-full object-cover rounded mr-4 border border-gray-200">
+
+                            <div>
+                                <i class="fa fa-file-text-o text-primary mr-2 mt-1 inline-block"></i>
+                                <span><strong>Pose Detection in Complex Classroom Environment Based on Improved Faster R-CNN</strong><br>Lin Tang, Chenqiang Gao, <strong>Xu Chen</strong>, Yue Zhao<br>IET Image Processing, 2019</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>        
+    </main>
+
+
+
+    <script>
+        // 移动端菜单切换
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.remove('shadow-sm');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.add('shadow-sm');
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    // 关闭移动菜单
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+
+    </script>
+<!-- 返回顶部按钮 -->
+<button id="back-to-top" class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 z-50 hover:bg-primary/90">
+    <i class="fa fa-arrow-up"></i>
+</button>
+
+<script>
+    // 返回顶部功能
+    const backToTopButton = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopButton.classList.remove('opacity-0', 'invisible');
+            backToTopButton.classList.add('opacity-100', 'visible');
+        } else {
+            backToTopButton.classList.remove('opacity-100', 'visible');
+            backToTopButton.classList.add('opacity-0', 'invisible');
+        }
+    });
+
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+</script>
+
+<!-- 访客统计与地图可视化 -->
+<div class="bg-gray-50 py-12">
+    <div class="container mx-auto px-4">
+        <!-- <h2 class="text-2xl font-bold mb-6 text-center">访客统计</h2> -->
+        <div class="flex flex-col md:flex-row gap-8">
+            <div class="w-full md:w-1/3 bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-4">Page Viewers</h3>
+                <div class="space-y-4">
+                    <div>
+                        <p class="text-gray-600">Total</p>
+                        <p id="total-visitors" class="text-3xl font-bold">0</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-600">Today</p>
+                        <p id="today-visitors" class="text-2xl font-semibold">0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full md:w-2/3 bg-white p-6 rounded-lg shadow-md">
+                <!-- <h3 class="text-xl font-semibold mb-4">访客地理位置</h3> -->
+                <div id="visitor-map" class="w-full h-80 rounded-lg"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Leaflet地图库 -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+<script>
+// 访客统计与地图可视化功能
+document.addEventListener('DOMContentLoaded', function() {
+    // 初始化地图
+    const map = L.map('visitor-map').setView([20.5937, 105.8654], 3);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // 存储访客数据的数组
+    let visitorData = JSON.parse(localStorage.getItem('visitorData')) || [];
+    const today = new Date().toISOString().split('T')[0];
+
+    // 获取今日访客数
+    const todayVisitors = visitorData.filter(v => v.date === today).length;
+    document.getElementById('today-visitors').textContent = todayVisitors;
+    document.getElementById('total-visitors').textContent = visitorData.length;
+
+    // 在地图上添加标记
+    const markers = {};
+    visitorData.forEach(visitor => {
+        const key = `${visitor.lat},${visitor.lng}`;
+        if (!markers[key]) {
+            markers[key] = L.marker([visitor.lat, visitor.lng]).addTo(map);
+            markers[key].bindPopup(`<b>${visitor.region}</b><br>${visitor.count} 位访客`);
+            markers[key].count = 1;
+        } else {
+            markers[key].count++;
+            markers[key].bindPopup(`<b>${visitor.region}</b><br>${markers[key].count} 位访客`);
+        }
+    });
+
+    // 获取当前访客地理位置并添加到数据
+    fetch('https://ipapi.co/json/')
+        .then(response => response.json())
+        .then(data => {
+            if (data.latitude && data.longitude) {
+                const newVisitor = {
+                    lat: data.latitude,
+                    lng: data.longitude,
+                    region: `${data.city}, ${data.region}`,
+                    date: today
+                };
+
+                // 检查是否是新访客（简单判断：今天同一地区的访问不重复计数）
+                const isNewVisitor = !visitorData.some(v => 
+                    v.date === today && 
+                    v.lat === newVisitor.lat && 
+                    v.lng === newVisitor.lng
+                );
+
+                if (isNewVisitor) {
+                    visitorData.push(newVisitor);
+                    localStorage.setItem('visitorData', JSON.stringify(visitorData));
+
+                    // 更新统计数字
+                    document.getElementById('today-visitors').textContent = todayVisitors + 1;
+                    document.getElementById('total-visitors').textContent = visitorData.length;
+
+                    // 添加新标记到地图
+                    const key = `${newVisitor.lat},${newVisitor.lng}`;
+                    if (!markers[key]) {
+                        markers[key] = L.marker([newVisitor.lat, newVisitor.lng]).addTo(map);
+                        markers[key].bindPopup(`<b>${newVisitor.region}</b><br>1 位访客`);
+                    } else {
+                        markers[key].count++;
+                        markers[key].bindPopup(`<b>${newVisitor.region}</b><br>${markers[key].count} 位访客`);
+                    }
+                }
+            }
+        })
+        .catch(error => console.error('获取地理位置失败:', error));
+});
+</script>
+
+</body>
+</html>

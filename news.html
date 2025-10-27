@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News | Research Homepage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        dark: '#1E293B',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <!-- <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center">
+                        <span class="text-xl font-bold text-primary">Research Lab</span>
+                    </a>
+                </div> -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="nav-home text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">Home</a>
+                    <a href="index.html#research" class="nav-research text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">Research</a>
+                    <a href="news.html" class="nav-news text-primary border-b-2 border-primary pb-1 text-sm font-medium">News</a>
+                    <a href="index.html#publications" class="nav-publications text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium">Publications</a>
+
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="nav-home block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Home</a>
+                <a href="index.html#research" class="nav-research block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Research</a>
+                <a href="news.html" class="nav-news block px-3 py-2 rounded-md text-base font-medium text-primary bg-gray-50">News</a>
+                <a href="index.html#publications" class="nav-publications block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Publications</a>
+
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-8 pb-16">
+        <!-- News Header -->
+        <section class="mb-12">
+            <div class="text-center">
+                <h1 class="text-3xl md:text-4xl font-bold text-dark inline-block border-b-4 border-primary pb-2" id="news-page-title">
+                    All News
+                </h1>
+            </div>
+        </section>
+
+        <!-- All News List -->
+        <section class="mb-20">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="divide-y divide-gray-200" id="all-news-list">
+                        <!-- News Item 1 -->
+                        <div class="p-6 hover:bg-gray-50 transition-colors">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-primary/10 text-primary rounded-md px-3 py-1 text-sm font-medium">2025-07-06</div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-medium text-gray-900" id="all-news-item-1-title">One paper accepted by ACM MM 2025</h3>
+                                    <p class="mt-1 text-gray-600" id="all-news-item-1-content">My research paper on dense multi-label temporal action detection has been accepted by ACM MM 2025 (CCF A).</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- News Item 2 -->
+                        <div class="p-6 hover:bg-gray-50 transition-colors">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-primary/10 text-primary rounded-md px-3 py-1 text-sm font-medium">2025-06-26</div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-medium text-gray-900" id="all-news-item-2-title">One paper accepted by ICCV 2025</h3>
+                                    <p class="mt-1 text-gray-600" id="all-news-item-2-content">My research paper on data-free knowledge distillation has been accepted by ICCV 2025 (CCF A).</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- News Item 3 -->
+                        <div class="p-6 hover:bg-gray-50 transition-colors">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-primary/10 text-primary rounded-md px-3 py-1 text-sm font-medium">2024-07-21</div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-medium text-gray-900" id="all-news-item-3-title">One paper accepted by TNNLS</h3>
+                                    <p class="mt-1 text-gray-600" id="all-news-item-3-content">My research paper on efficient action recognition has been accepted by TNNLS (CCF B).</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- News Item 3 -->
+                        <div class="p-6 hover:bg-gray-50 transition-colors">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-primary/10 text-primary rounded-md px-3 py-1 text-sm font-medium">2022-12-30</div>
+                                <div class="ml-4">
+                                    <h3 class="text-lg font-medium text-gray-900" id="all-news-item-3-title">One paper accepted by TIP</h3>
+                                    <p class="mt-1 text-gray-600" id="all-news-item-3-content">My research paper on efficient action recognition has been accepted by TIP (CCF A).</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add more news items as needed -->
+                    </div>
+                    <div class="bg-gray-50 px-6 py-4">
+                        <a href="index.html" class="text-primary hover:text-primary/80 font-medium flex items-center">
+                            <i class="fa fa-angle-left mr-1"></i> Back to homepage
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-primary/90 focus:outline-none z-50">
+        <i class="fa fa-chevron-up"></i>
+    </button>
+
+    <!-- Footer
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Research Lab</h3>
+                    <p class="text-gray-300">Advancing computer vision and machine learning research for a better future.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="index.html#research" class="text-gray-300 hover:text-white transition-colors">Research</a></li>
+                        <li><a href="news.html" class="text-gray-300 hover:text-white transition-colors">News</a></li>
+                        <li><a href="index.html#publications" class="text-gray-300 hover:text-white transition-colors">Publications</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center"><i class="fa fa-envelope-o mr-2"></i> <a href="mailto:example@university.edu" class="text-gray-300 hover:text-white transition-colors">example@university.edu</a></li>
+                        <li class="flex items-center"><i class="fa fa-map-marker mr-2"></i> <span class="text-gray-300">University Campus, City, Country</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
+                <p>&copy; 2025 Research Lab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer> -->
+
+    <!-- Mobile menu toggle script -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', () => {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
