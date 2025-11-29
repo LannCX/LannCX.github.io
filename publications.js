@@ -1,7 +1,7 @@
 // 论文数据文件 - 由index.html引用
 const publications = [
   {
-    id: 1,
+    id: 7,
     title: "Ex Pede Herculem, Predicting Global Actionness Curve from Local Clips",
     authors: ["Xu Chen", "Yang Li", "Yahong Han", "Jialie Shen"],
     conference: "ACM International Conference on Multimedia (ACM MM)",
@@ -14,7 +14,7 @@ const publications = [
     isOral: false
   },
   {
-    id: 2,
+    id: 6,
     title: "Coupling the Generator with Teacher for Effective Data-Free Knowledge Distillation",
     authors: ["Xu Chen", "Yang Li", "Yahong Han", "Guangquan Xu", "Jialie Shen"],
     conference: "International Conference on Computer Vision (ICCV)",
@@ -27,7 +27,7 @@ const publications = [
     isOral: false
   },
   {
-    id: 3,
+    id: 5,
     title: "A Static-Dynamic Composition Framework for Efficient Action Recognition",
     authors: ["Xu Chen", "Yahong Han", "Changlin Li", "Xiaojun Chang", "Yifan Sun", "Yi Yang"],
     conference: "IEEE Transactions on Neural Networks and Learning Systems (TNNLS)",
@@ -52,7 +52,7 @@ const publications = [
     isOral: false
   },
   {
-    id: 5,
+    id: 3,
     title: "Video-to-Image Casting: A Flatting Method for Video Analysis",
     authors: ["Xu Chen", "Chenqiang Gao", "Feng Yang", "Xiaohan Wang", "Yi Yang", "Yahong Han"],
     conference: "ACM International Conference on Multimedia (ACM MM)",
@@ -65,7 +65,7 @@ const publications = [
     isOral: true
   },
   {
-    id: 6,
+    id: 2,
     title: "Infrared Action Detection in the Dark via Cross-stream Attention Mechanism",
     authors: ["Xu Chen", "Chenqiang Gao", "Chaoyu Li", "Yi Yang", "Deyu Meng"],
     conference: "IEEE Transactions on Multimedia (TMM)",
@@ -78,7 +78,7 @@ const publications = [
     isOral: false
   },
   {
-    id: 7,
+    id: 1,
     title: "Pose Detection in Complex Classroom Environment Based on Improved Faster R-CNN",
     authors: ["Lin Tang", "Chenqiang Gao", "Xu Chen", "Yue Zhao"],
     conference: "IET Image Processing",
@@ -96,7 +96,10 @@ function renderPublications() {
   
   publicationsContainer.innerHTML = '';
   
-  publications.forEach(pub => {
+  // 按id倒序排列论文，使最新的论文显示在前面
+  const sortedPublications = [...publications].sort((a, b) => b.id - a.id);
+  
+  sortedPublications.forEach(pub => {
     const li = document.createElement('li');
     li.className = 'flex items-start';
     
