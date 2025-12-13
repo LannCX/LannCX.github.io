@@ -6,8 +6,9 @@
     <title>Xu Chen's Homepage</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-geo@4.2.0/dist/chartjs-chart-geo.umd.min.js"></script>
+    <!-- Chart.js 已移除，不再需要 -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-geo@4.2.0/dist/chartjs-chart-geo.umd.min.js"></script> -->
     <script>
         tailwind.config = {
             theme: {
@@ -293,6 +294,7 @@
             <div class="w-full md:w-1/3 bg-white p-6 rounded-lg shadow-md">
                 <h3 class="text-xl font-semibold mb-4">Page Viewers</h3>
                 <div class="space-y-4">
+                    <!-- Visit Tracker 统计显示 -->
                     <div>
                         <p class="text-gray-600">Total</p>
                         <p id="total-visitors" class="text-3xl font-bold">0</p>
@@ -305,18 +307,52 @@
             </div>
             <div class="w-full md:w-2/3 bg-white p-6 rounded-lg shadow-md">
                 <!-- <h3 class="text-xl font-semibold mb-4">访客地理位置</h3> -->
-                <div id="visitor-map" class="w-full h-80 rounded-lg"></div>
+                <!-- Clustrmaps 地图 -->
+                <div id="visitor-map" class="w-full h-80 rounded-lg flex items-center justify-center bg-gray-100">
+                    <!-- 请访问 https://clustrmaps.com 获取免费的地图代码 -->
+                    <!-- <script type="text/javascript" id="clstr_globe" src="//cdn.clustrmaps.com/globe.js?d=YOUR_MAP_ID"></script> -->
+                    <script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=NXtqbf7cjqwDBxAB4UM7tAbxIvhkhhYA_Re0PeWTNOM&cl=ffffff&w=a"></script>
+                    <!-- <div class="text-center text-gray-500">
+                        <h4 class="text-lg font-medium mb-2">访客地图</h4>
+                        <p>请在 clustrmaps.com 注册获取免费的访客地图代码</p>
+                        <p class="text-sm mt-2">然后将代码粘贴到此处</p>
+                    </div> -->
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Leaflet地图库 -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-
-<!-- 访客统计功能模块 -->
-<script src="visitor-counter.js"></script>
+<!-- Visit Tracker 访客统计 -->
+<script src="visit-tracker.js"></script>
+<script type="text/javascript">
+    // Visit Tracker 配置
+    var visitTrackerConfig = {
+        siteId: 'lanncx-website',
+        apiKey: 'YOUR_API_KEY' // 替换为真实API密钥
+    };
+    
+    // 更新访问统计显示
+    function updateVisitorStats(total, today) {
+        var totalEl = document.getElementById('total-visitors');
+        var todayEl = document.getElementById('today-visitors');
+        
+        if (totalEl) totalEl.textContent = total;
+        if (todayEl) todayEl.textContent = today;
+    }
+    
+    // 初始化Visit Tracker
+    window.addEventListener('load', function() {
+        // 创建Visit Tracker实例
+        var visitorTracker = new VisitTracker(visitTrackerConfig);
+        
+        // 记录访问
+        var stats = visitorTracker.trackVisit();
+        
+        // 更新统计显示
+        updateVisitorStats(stats.totalCount, stats.todayCount);
+    });
+</script>
 
 </body>
 </html>
