@@ -1,0 +1,6 @@
+# Format: [Top] | date | English title | English description | Chinese title | Chinese description
+# Put [Top] at the beginning of an entry to show it on the homepage.
+[Top] | 2025-07-06 | FreETAD will appear at ACM MM 2025 | FreETAD predicts global actionness from local clips for efficient temporal action detection. | FreETAD 即将在 ACM MM 2025 亮相 | FreETAD 从局部视频片段预测全局动作曲线，用于高效时序动作检测。
+[Top] | 2025-06-26 | CPNet will appear at ICCV 2025 | CPNet couples the generator with the teacher to improve data-free knowledge distillation. | CPNet 入选 ICCV 2025 | CPNet 将生成器与教师模型协同起来，以提升数据无关知识蒸馏的效果。
+[Top] | 2024-07-21 | SDCOM is now published in TNNLS | SDCOM combines static and dynamic representations for efficient action recognition. | SDCOM 正式发表于 TNNLS | SDCOM 融合静态与动态表征，实现高效动作识别。
+2022-12-30 | Action Keypoint Network is published in TIP | Action Keypoint Network identifies informative temporal cues for efficient video recognition. | Action Keypoint Network 正式发表于 TIP | Action Keypoint Network 选取关键时序信息，用于高效视频识别。
