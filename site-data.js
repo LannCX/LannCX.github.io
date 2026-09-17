@@ -169,6 +169,33 @@
     });
   });
 
+  function loadVisitorStats() {
+    const stats = document.querySelector("[data-visitor-stats]");
+    if (!stats) return;
+
+    // Local previews must not inflate the public site's counters.
+    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") return;
+
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js";
+    script.addEventListener("load", () => {
+      let attempts = 0;
+      const revealWhenReady = window.setInterval(() => {
+        const visitors = document.querySelector("#busuanzi_value_site_uv");
+        const views = document.querySelector("#busuanzi_value_site_pv");
+        attempts += 1;
+        if (visitors && views && /\d/.test(visitors.textContent) && /\d/.test(views.textContent)) {
+          stats.hidden = false;
+          window.clearInterval(revealWhenReady);
+        } else if (attempts >= 25) {
+          window.clearInterval(revealWhenReady);
+        }
+      }, 200);
+    });
+    document.head.appendChild(script);
+  }
+
   applyLanguage(currentLanguage);
   const newsList = document.querySelector("#news-list");
   const publicationList = document.querySelector("#publication-list");
@@ -176,4 +203,5 @@
   if (publicationList) loadList(publicationList, renderPublications);
   const year = document.querySelector("#year");
   if (year) year.textContent = new Date().getFullYear();
+  loadVisitorStats();
 })();
