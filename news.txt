@@ -1,6 +1,6 @@
 # Format: [Top] | date | English title | English description | Chinese title | Chinese description
 # Put [Top] at the beginning of an entry to show it on the homepage.
-[Top] | 2026-09-26 | Two papers have been accepted to NeurIPS 2026. Congratulations to Guangdao! | | 两篇论文被 NeurIPS 2026 接收，恭喜光道！ |
+[Top] | 2026-09-26 | Two papers have been accepted to NeurIPS 2026. Congratulations to Guangdao and Zhiyuan ! | | 两篇论文被 NeurIPS 2026 接收，恭喜光道、志远！ |
 [Top] | 2026-08-31 | I have been funded by the Youth Science Fund Program (C) of the National Natural Science Foundation of China (NSFC). | Research on Embodied Spatial Perception Method Driven by Dynamic Structure of Videos, 300,000 RMB, Ongoing, PI. | 我获得了国家自然科学基金青年项目(C类)资助 | ，视频动态结构驱动的具身空间感知方法研究，30万元，在研，主持
 [Top] | 2026-07-24 |  I have been funded by the General Program Grant from the China Postdoctoral Science Foundation. | Research on Agent Spatial Modeling Methods for Embodied Interaction, 80,000 RMB, Ongoing, PI | 我获得了中国博士后科学基金面上项目资助 | 面向具身交互的智能体空间建模方法研究，8万元，在研，主持
 [Top] | 2025-07-06 | FreETAD will appear at ACM MM 2025 | FreETAD predicts global actionness from local clips for efficient temporal action detection. | 我我们的工作FreETAD 被 ACM MM 2025 接收 | FreETAD 从局部视频片段预测全局动作曲线，用于高效时序动作检测。
